@@ -1,0 +1,20 @@
+name: validate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: 생성 룰북이 SSOT 와 일치하는가
+        run: python3 scripts/build_rules.py --check
+      - name: 패키지 정합성
+        run: python3 scripts/validate_package.py
+      - name: 회귀 테스트
+        run: python3 -m unittest discover -s tests -v

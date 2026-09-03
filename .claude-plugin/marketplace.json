@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace-manifest.json",
+  "name": "gyeol",
+  "owner": {
+    "name": "donghyeun02",
+    "url": "https://github.com/donghyeun02"
+  },
+  "metadata": {
+    "description": "한국어 글결 수렴기 — 레퍼런스 코퍼스에서 유도한 문체 대역으로 글을 맞춘다.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "gyeol",
+      "source": "./",
+      "description": "한국어 글을 레퍼런스 글의 목소리로 수렴시키는 오케스트레이터 스킬 + 서브에이전트 3종 + 결정적 게이트.",
+      "version": "0.1.0",
+      "license": "MIT",
+      "keywords": ["korean", "writing", "voice", "글결", "윤문"]
+    }
+  ]
+}
