@@ -146,6 +146,32 @@ class Routing(unittest.TestCase):
         self.assertNotIn("도움이 되셨길", cleaned)
         self.assertIn("여기가 진짜 내용", cleaned)
 
+    def test_chatbot_frame_on_one_line(self):
+        """실사용에서 발견. LLM 은 여는 말을 단독 줄로 쓰지 않는다."""
+        for frame in (
+            "물론입니다! 요청하신 블로그 글을 작성해 드리겠습니다:",
+            "알겠습니다. 아래와 같이 정리했습니다:",
+            "네, 바로 작성해 드리겠습니다!",
+            "다음은 N+1 문제에 대한 설명입니다:",
+        ):
+            with self.subTest(frame=frame):
+                cleaned, removed = prepare_input.strip_chatbot_frame(frame + "\n\n본문이다.")
+                self.assertEqual(removed, 1)
+                self.assertNotIn(frame, cleaned)
+
+    def test_body_sentences_survive_frame_stripping(self):
+        """오탐이 참을 놓치는 것보다 훨씬 나쁘다. 본문을 지우면 의미가 사라진다."""
+        for body in (
+            "물론 이 방식에도 한계가 있습니다.",
+            "다음은 제가 실제로 겪은 문제입니다.",
+            "다음은 N+1 문제에 대한 설명입니다.",
+            "결과는 다음과 같이 나왔습니다.",
+        ):
+            with self.subTest(body=body):
+                cleaned, removed = prepare_input.strip_chatbot_frame(body + "\n\n이어지는 본문이다.")
+                self.assertEqual(removed, 0, f"본문이 프레임으로 오인됐다: {body!r}")
+                self.assertIn(body, cleaned)
+
 
 class Profile(unittest.TestCase):
     def test_register_detection(self):
