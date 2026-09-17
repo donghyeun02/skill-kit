@@ -2,3 +2,7 @@ __pycache__/
 *.pyc
 _workspace/
 .DS_Store
+
+# 제3자 레퍼런스 원문 — 공개 저장소에 넣지 않는다 (tests/fixtures/README.md)
+tests/fixtures/ref_daangn.txt
+tests/fixtures/ref_yeolyi.txt

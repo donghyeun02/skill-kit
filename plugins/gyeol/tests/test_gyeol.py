@@ -29,11 +29,20 @@ def read(path: Path) -> str:
     return path.read_text(encoding="utf-8")
 
 
+# 제3자 레퍼런스 원문은 저장소에 넣지 않는다(tests/fixtures/README.md).
+# 로컬에 있으면 전부 검사하고, CI 처럼 없으면 있는 것만 검사한다.
+REFERENCE_FILES = sorted(FIXTURES.glob("ref_*.txt"))
+EXPECTED_REFERENCE_COUNT = len(BASELINE["sources"])
+
+
 class ReferenceCorpus(unittest.TestCase):
     """레퍼런스 글은 정의상 대역 안에 있어야 한다. 벗어나면 대역이 틀린 것이다."""
 
+    def test_at_least_one_reference_available(self):
+        self.assertGreaterEqual(len(REFERENCE_FILES), 1, "레퍼런스 픽스처가 하나도 없다")
+
     def test_references_sit_inside_bands(self):
-        for path in sorted(FIXTURES.glob("ref_*.txt")):
+        for path in REFERENCE_FILES:
             text = read(path)
             report = profiler.compute(text)
             axes = dict(report["axes"])
@@ -50,7 +59,7 @@ class ReferenceCorpus(unittest.TestCase):
 
     def test_references_route_light(self):
         """사람이 쓴 글은 손댈 필요가 없다고 판정돼야 한다 — 오탐 방지의 핵심 지표."""
-        for path in sorted(FIXTURES.glob("ref_*.txt")):
+        for path in REFERENCE_FILES:
             report = profiler.compute(read(path))
             hint, breaches = prepare_input.route_hint(report, BASELINE)
             with self.subTest(ref=path.name):
@@ -91,7 +100,7 @@ class Gate(unittest.TestCase):
         self.assertEqual(axes, {"human_marker_retention"})
 
     def test_summary_block_is_stripped(self):
-        text = read(FIXTURES / "ref_daangn.txt")
+        text = read(FIXTURES / "ref_donghyeun02.txt")  # 저장소에 항상 있는 레퍼런스
         with_summary = text + "\n\n<!-- GYEOL-SUMMARY -->\n| 항목 | 값 |\n"
         self.assertEqual(verify_gates.strip_summary(with_summary).strip(), text.strip())
 
@@ -198,6 +207,10 @@ class Package(unittest.TestCase):
         )
         self.assertEqual(result.returncode, 0, result.stderr)
 
+    @unittest.skipUnless(
+        len(REFERENCE_FILES) == EXPECTED_REFERENCE_COUNT,
+        "제3자 레퍼런스 원문이 없어 재현 검사를 건너뛴다 (tests/fixtures/README.md)",
+    )
     def test_baseline_can_be_regenerated(self):
         with tempfile.TemporaryDirectory() as tmp:
             out = Path(tmp) / "baseline.json"
