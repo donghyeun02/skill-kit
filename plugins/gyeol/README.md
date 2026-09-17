@@ -226,10 +226,6 @@ python3 -m unittest discover -s tests     # 회귀 테스트
 - [epoko77-ai/im-not-ai](https://github.com/epoko77-ai/im-not-ai) — 원본 룰북에서 슬림 룰북을 빌드하는 방식, exit code 게이트와 변경률 임계(30%/50%), `_workspace/{run_id}/` 구조, light · standard · heavy 경로, 스크립트 루트 찾는 방식, 내용 앵커, 번역투 패턴(T)과 그 실측 보수화.
 - [blader/humanizer](https://github.com/blader/humanizer) — 패키지 버전 동기화 검사, `AGENTS.md` 형식, 오탐 목록, 구조 · 형식 · 챗봇 패턴(S · F · C).
 
-V 카테고리, 6축 게이트, 베이스라인 유도, 사전 · 사후 이원 룰북은 이 저장소에서 만들었습니다.
-
-기본 레퍼런스 글: 당근 기술블로그 「프론트엔드와 백엔드를 한 팀으로 합치면 어떤 일이 일어날까?」, donghyeun02.com/about, yeolyi.com 「개발 인스타 이대로만 하면 되는걸까」.
-
 ## 라이선스
 
 MIT
