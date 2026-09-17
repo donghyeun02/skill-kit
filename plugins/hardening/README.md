@@ -9,8 +9,8 @@
 ## 설치
 
 ```
-/plugin marketplace add donghyeun02/claude-kit
-/plugin install hardening@claude-kit
+/plugin marketplace add donghyeun02/skill-kit
+/plugin install hardening@skill-kit
 ```
 
 `/harden`은 `/redteam`의 절차를 재사용하므로 둘은 항상 같이 설치됩니다.
@@ -168,7 +168,7 @@ Next.js 15 블로그에 `/harden`을 처음 돌린 기록입니다(2026-06-04).
 <details>
 <summary>펼치기</summary>
 
-- **0.1.0** — claude-kit 마켓플레이스로 이전. `/redteam`(검증 패스, 도달 가능성 분류, 프레임워크별 시크릿 노출 확인, 공격 체인 연결)과 `/harden`(security·perf·a11y 차원, 가중치 채점, 제안서, 스코어보드, 브랜치 안전장치)을 한 플러그인으로 묶음. 스코어보드 수정 항목을 `#번호` 대신 라벨로 기록하도록 변경한 내용 포함.
+- **0.1.0** — skill-kit 마켓플레이스로 이전. `/redteam`(검증 패스, 도달 가능성 분류, 프레임워크별 시크릿 노출 확인, 공격 체인 연결)과 `/harden`(security·perf·a11y 차원, 가중치 채점, 제안서, 스코어보드, 브랜치 안전장치)을 한 플러그인으로 묶음. 스코어보드 수정 항목을 `#번호` 대신 라벨로 기록하도록 변경한 내용 포함.
 
 </details>
 

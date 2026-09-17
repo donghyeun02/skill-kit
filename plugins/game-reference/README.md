@@ -7,8 +7,8 @@
 ## 설치
 
 ```
-/plugin marketplace add donghyeun02/claude-kit
-/plugin install game-reference@claude-kit
+/plugin marketplace add donghyeun02/skill-kit
+/plugin install game-reference@skill-kit
 ```
 
 ## 사용법
@@ -138,7 +138,7 @@ data.ai 접근이 있으면 미국 iOS·Android 매출 Top 100에서 장르를 �
 <details>
 <summary>펼치기</summary>
 
-- **0.1.0** — claude-kit 마켓플레이스로 이전. 4단계 워크플로우(세부 장르 → 미국 매출 순위 → 스테디셀러/신규 진입 분류 → 리텐션 검증), 고정 출력 형식, 평가 프롬프트 3건.
+- **0.1.0** — skill-kit 마켓플레이스로 이전. 4단계 워크플로우(세부 장르 → 미국 매출 순위 → 스테디셀러/신규 진입 분류 → 리텐션 검증), 고정 출력 형식, 평가 프롬프트 3건.
 
 </details>
 

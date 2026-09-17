@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace-manifest.json",
-  "name": "claude-kit",
+  "name": "skill-kit",
   "owner": {
     "name": "donghyeun02",
     "url": "https://github.com/donghyeun02"

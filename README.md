@@ -1,17 +1,17 @@
-# claude-kit
+# skill-kit
 
-제가 직접 만들어 쓰는 Claude Code 플러그인 모음입니다. 마켓플레이스 하나로 묶어 두어서, 새 환경에서도 두 줄이면 필요한 걸 다시 깔 수 있습니다.
+제가 직접 만들어 쓰는 AI 에이전트용 스킬·플러그인 모음입니다. 마켓플레이스 하나로 묶어 두어서, 새 환경에서도 두 줄이면 필요한 걸 다시 깔 수 있습니다.
 
 각 플러그인의 자세한 사용법·동작 방식·한계는 플러그인 폴더의 README에 있습니다.
 
 ## 설치
 
 ```
-/plugin marketplace add donghyeun02/claude-kit
-/plugin install <플러그인>@claude-kit
+/plugin marketplace add donghyeun02/skill-kit
+/plugin install <플러그인>@skill-kit
 ```
 
-업데이트는 `/plugin marketplace update claude-kit` 후 `/plugin update <플러그인>`입니다.
+업데이트는 `/plugin marketplace update skill-kit` 후 `/plugin update <플러그인>`입니다.
 
 ## 플러그인
 
@@ -21,6 +21,17 @@
 | [hardening](plugins/hardening) | `/redteam` 증거 기반 감사, `/harden` 점수 기반 반복 하드닝 | 커맨드 2 | 0.1.0 |
 | [game-reference](plugins/game-reference) | 만들려는 게임의 레퍼런스를 미국 매출 순위와 리텐션으로 찾습니다 | 스킬 1 (평가 3건) | 0.1.0 |
 | [lecture-summary](plugins/lecture-summary) | PDF 강의자료를 한글 요약 노트로 정리합니다 | 스킬 1 | 0.1.0 |
+
+### 어디서 돌아가나
+
+설치는 지금 Claude Code 마켓플레이스로만 됩니다. 스킬 파일 자체는 표준 `SKILL.md` 형식이라, Claude 전용 요소가 없는 것은 다른 에이전트의 스킬 폴더에 넣어도 그대로 동작합니다.
+
+| 플러그인 | 다른 에이전트에서 | 걸리는 부분 |
+|---|---|---|
+| game-reference | 그대로 동작 | 없음 |
+| lecture-summary | 그대로 동작 | 없음 |
+| gyeol | 일부만 | 파이썬 스크립트와 룰북은 쓸 수 있지만, 진단 → 윤문 → 마무리 흐름은 Claude Code의 서브에이전트 호출과 `CLAUDE_SKILL_DIR`에 기대고 있습니다 |
+| hardening | 동작 안 함 | Claude Code 슬래시 커맨드 형식(`$ARGUMENTS`, `argument-hint`, `subagent_type`)입니다 |
 
 ### 필요한 것
 

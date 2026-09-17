@@ -7,8 +7,8 @@ PDF 강의자료를 받아 **한글 요약 노트**로 정리합니다. 영어 �
 ## 설치
 
 ```
-/plugin marketplace add donghyeun02/claude-kit
-/plugin install lecture-summary@claude-kit
+/plugin marketplace add donghyeun02/skill-kit
+/plugin install lecture-summary@skill-kit
 ```
 
 텍스트 추출에 `pdftotext`를 씁니다. 없으면 먼저 설치하세요.
@@ -79,7 +79,7 @@ pdftotext -f 1 -l 24 "파일.pdf" -      # 1~24쪽
 <details>
 <summary>펼치기</summary>
 
-- **0.1.0** — claude-kit 마켓플레이스로 이전. pdftotext 추출(페이지 범위 지원), 한글 요약 형식·내용 규칙.
+- **0.1.0** — skill-kit 마켓플레이스로 이전. pdftotext 추출(페이지 범위 지원), 한글 요약 형식·내용 규칙.
 
 </details>
 

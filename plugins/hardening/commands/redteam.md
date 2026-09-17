@@ -304,6 +304,6 @@ Then stop. Do **not** commit or push unless the user explicitly asks.
 - This is a heavyweight, on-demand audit — run it before a PR or when a feature is done, not on
   every save. For fast per-commit checks (secret scanning, lint) use a `pre-commit` git hook; it
   complements this command rather than replacing it.
-- To share: `/plugin marketplace add donghyeun02/claude-kit` then `/plugin install hardening@claude-kit`
+- To share: `/plugin marketplace add donghyeun02/skill-kit` then `/plugin install hardening@skill-kit`
   (ships `/redteam` and `/harden` together — `/harden` depends on `/redteam`). Or commit this file to a
   project's `.claude/commands/redteam.md` so everyone on the repo gets `/redteam` automatically.

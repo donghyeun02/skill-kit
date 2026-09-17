@@ -30,7 +30,7 @@ def read(path: Path) -> str:
 skill = read(ROOT / "skills" / "gyeol" / "SKILL.md")
 readme = read(ROOT / "README.md")
 plugin_raw = read(ROOT / ".claude-plugin" / "plugin.json")
-# 독립 레포면 자기 marketplace.json, 모노레포(claude-kit)면 루트 marketplace.json 의 gyeol 항목을 본다.
+# 독립 레포면 자기 marketplace.json, 모노레포(skill-kit)면 루트 marketplace.json 의 gyeol 항목을 본다.
 _marketplace_candidates = [ROOT / ".claude-plugin" / "marketplace.json",
                            ROOT.parents[1] / ".claude-plugin" / "marketplace.json"]
 _marketplace_path = next((c for c in _marketplace_candidates if c.is_file()), None)
