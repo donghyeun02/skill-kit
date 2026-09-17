@@ -30,7 +30,13 @@ def read(path: Path) -> str:
 skill = read(ROOT / "skills" / "gyeol" / "SKILL.md")
 readme = read(ROOT / "README.md")
 plugin_raw = read(ROOT / ".claude-plugin" / "plugin.json")
-marketplace_raw = read(ROOT / ".claude-plugin" / "marketplace.json")
+# 독립 레포면 자기 marketplace.json, 모노레포(claude-kit)면 루트 marketplace.json 의 gyeol 항목을 본다.
+_marketplace_candidates = [ROOT / ".claude-plugin" / "marketplace.json",
+                           ROOT.parents[1] / ".claude-plugin" / "marketplace.json"]
+_marketplace_path = next((c for c in _marketplace_candidates if c.is_file()), None)
+if _marketplace_path is None:
+    fail("marketplace.json 을 찾지 못했다 (플러그인 루트와 모노레포 루트 모두 없음)")
+marketplace_raw = _marketplace_path.read_text(encoding="utf-8") if _marketplace_path else ""
 
 # --- 버전 3중 동기화 -----------------------------------------------------------
 skill_version = re.search(r'(?m)^version:\s*["\']([^"\']+)["\']\s*$', skill)
@@ -42,7 +48,10 @@ versions = {
     "SKILL.md": skill_version.group(1) if skill_version else None,
     "README.md": readme_version.group(1) if readme_version else None,
     "plugin.json": plugin.get("version"),
-    "marketplace.json": marketplace.get("metadata", {}).get("version"),
+    "marketplace.json": next(
+        (e.get("version") for e in marketplace.get("plugins", []) if e.get("name") == "gyeol"),
+        marketplace.get("metadata", {}).get("version"),
+    ),
 }
 for name, value in versions.items():
     if not value:

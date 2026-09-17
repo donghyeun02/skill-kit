@@ -1,15 +1,25 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "gyeol",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "한국어 글을 레퍼런스 글의 목소리로 수렴시킨다. 임계값은 손으로 적지 않고 레퍼런스 코퍼스에서 유도하며, 판정은 파이썬 게이트가 한다.",
   "author": {
     "name": "donghyeun02",
     "url": "https://github.com/donghyeun02"
   },
-  "homepage": "https://github.com/donghyeun02/gyeol",
-  "repository": "https://github.com/donghyeun02/gyeol",
+  "homepage": "https://github.com/donghyeun02/claude-kit/tree/main/plugins/gyeol",
+  "repository": "https://github.com/donghyeun02/claude-kit",
   "license": "MIT",
-  "keywords": ["korean", "writing", "voice", "humanize", "글결", "윤문", "문체"],
-  "skills": ["./skills/gyeol"]
+  "keywords": [
+    "korean",
+    "writing",
+    "voice",
+    "humanize",
+    "글결",
+    "윤문",
+    "문체"
+  ],
+  "skills": [
+    "./skills/gyeol"
+  ]
 }

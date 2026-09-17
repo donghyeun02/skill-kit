@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace-manifest.json",
+  "name": "claude-kit",
+  "owner": {
+    "name": "donghyeun02",
+    "url": "https://github.com/donghyeun02"
+  },
+  "metadata": {
+    "description": "donghyeun02 가 직접 만들어 쓰는 Claude Code 플러그인 모음."
+  },
+  "plugins": [
+    {
+      "name": "gyeol",
+      "source": "./plugins/gyeol",
+      "description": "한국어 글을 레퍼런스 글의 목소리로 수렴시킨다. 임계값은 레퍼런스 코퍼스에서 유도하고 판정은 파이썬 게이트가 한다.",
+      "version": "0.1.1",
+      "category": "writing",
+      "keywords": [
+        "korean",
+        "writing",
+        "voice",
+        "글결",
+        "윤문"
+      ]
+    },
+    {
+      "name": "hardening",
+      "source": "./plugins/hardening",
+      "description": "/redteam 증거 기반 감사 + /harden 점수 기반 연속 하드닝 루프.",
+      "version": "0.1.0",
+      "category": "security",
+      "keywords": [
+        "security",
+        "audit",
+        "red-team",
+        "hardening"
+      ]
+    },
+    {
+      "name": "game-reference",
+      "source": "./plugins/game-reference",
+      "description": "만들려는 게임의 레퍼런스를 매출 순위 데이터 기반으로 찾는다.",
+      "version": "0.1.0",
+      "category": "research",
+      "keywords": [
+        "game",
+        "market-research"
+      ]
+    },
+    {
+      "name": "lecture-summary",
+      "source": "./plugins/lecture-summary",
+      "description": "PDF 강의자료 한글 요약. poppler(pdftotext) 필요.",
+      "version": "0.1.0",
+      "category": "study",
+      "keywords": [
+        "pdf",
+        "summary",
+        "study"
+      ]
+    }
+  ]
+}

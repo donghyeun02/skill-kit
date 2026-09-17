@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "hardening",
+  "version": "0.1.0",
+  "description": "레드팀/블루팀 감사(/redteam)와 점수 기반 연속 하드닝 루프(/harden). 증거로 검증된 것만 보고하고, 수정은 승인 후 브랜치에서만 한다.",
+  "author": { "name": "donghyeun02", "url": "https://github.com/donghyeun02" },
+  "homepage": "https://github.com/donghyeun02/claude-kit/tree/main/plugins/hardening",
+  "repository": "https://github.com/donghyeun02/claude-kit",
+  "license": "MIT",
+  "keywords": ["security", "audit", "red-team", "hardening"]
+}

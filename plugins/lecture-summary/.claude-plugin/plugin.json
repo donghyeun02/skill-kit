@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "lecture-summary",
+  "version": "0.1.0",
+  "description": "PDF 강의자료를 한글로 요약 정리한다. 페이지 범위 지정 가능. poppler(pdftotext) 필요.",
+  "author": { "name": "donghyeun02", "url": "https://github.com/donghyeun02" },
+  "homepage": "https://github.com/donghyeun02/claude-kit/tree/main/plugins/lecture-summary",
+  "repository": "https://github.com/donghyeun02/claude-kit",
+  "license": "MIT",
+  "keywords": ["pdf", "summary", "study"]
+}

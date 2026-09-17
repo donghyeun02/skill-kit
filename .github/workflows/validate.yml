@@ -5,8 +5,21 @@ on:
   pull_request:
 
 jobs:
-  validate:
+  marketplace:
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: 마켓플레이스 정합성
+        run: python3 scripts/validate_marketplace.py
+
+  gyeol:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: plugins/gyeol
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

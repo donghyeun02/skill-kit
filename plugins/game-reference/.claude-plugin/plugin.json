@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "game-reference",
+  "version": "0.1.0",
+  "description": "만들려는 게임의 레퍼런스(벤치마크 게임)를 미국 매출 순위 데이터 기반으로 찾는다.",
+  "author": { "name": "donghyeun02", "url": "https://github.com/donghyeun02" },
+  "homepage": "https://github.com/donghyeun02/claude-kit/tree/main/plugins/game-reference",
+  "repository": "https://github.com/donghyeun02/claude-kit",
+  "license": "MIT",
+  "keywords": ["game", "market-research", "benchmark"]
+}
