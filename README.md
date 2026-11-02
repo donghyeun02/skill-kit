@@ -19,7 +19,7 @@ AI에게 일을 시키는 것보다, 그 결과를 믿을 수 있게 만드는 �
 **hardening** — 찾는 건 레드팀, 고치는 건 검증을 통과한 것만
 
 - 발견마다 세 가지를 확인합니다: 실제로 호출되나, 외부에서 닿나, 다른 발견과 엮이나.
-- [개인 블로그](https://github.com/donghyeun02/blog/blob/main/docs/hardening/scoreboard.md) 자체 기준 보안 점수 **62 → 99**
+- [개인 블로그](https://github.com/donghyeun02/blog/blob/master/docs/hardening/scoreboard.md) 자체 기준 보안 점수 **62 → 99**
 
 **game-reference** — 평가 3건을 [skilleval](https://github.com/donghyeun02/skilleval)로 코드 채점
 
