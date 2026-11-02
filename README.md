@@ -1,8 +1,29 @@
 # skill-kit
 
+[![validate](https://github.com/donghyeun02/skill-kit/actions/workflows/validate.yml/badge.svg)](https://github.com/donghyeun02/skill-kit/actions/workflows/validate.yml)
+
 제가 직접 만들어 쓰는 AI 에이전트용 스킬·플러그인 모음입니다. 마켓플레이스 하나로 묶어 두어서, 새 환경에서도 두 줄이면 필요한 걸 다시 깔 수 있습니다.
 
 각 플러그인의 자세한 사용법·동작 방식·한계는 플러그인 폴더의 README에 있습니다.
+
+## 만들면서 지킨 것
+
+AI에게 일을 시키는 것보다, 그 결과를 믿을 수 있게 만드는 쪽이 더 어려웠습니다.
+그래서 플러그인마다 **찾는 역할과 판정하는 역할을 나눴습니다.**
+
+**gyeol** — 고치는 건 에이전트, 판정은 `verify_gates.py`
+
+- 임계값은 레퍼런스 글에서 유도합니다. 판정에 LLM 콜을 쓰지 않습니다.
+- 골든 픽스처에서 변경률은 **8.1%**로 통과였지만, 말투 유지율이 **14%**로 떨어진 걸 잡아냈습니다.
+
+**hardening** — 찾는 건 레드팀, 고치는 건 검증을 통과한 것만
+
+- 발견마다 세 가지를 확인합니다: 실제로 호출되나, 외부에서 닿나, 다른 발견과 엮이나.
+- [개인 블로그](https://github.com/donghyeun02/blog/blob/main/docs/hardening/scoreboard.md) 보안 점수 **62 → 99**
+
+**game-reference** — 평가 3건을 [skilleval](https://github.com/donghyeun02/skilleval)로 코드 채점
+
+- 출력 규칙 준수율 스킬 미적용 **17%** → 적용 **97%**
 
 ## 설치
 
